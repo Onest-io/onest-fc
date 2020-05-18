@@ -3,16 +3,14 @@ language: c++
 cache: ccache
 
 git:
-  depth: 1
-
-before_install:
-  - git submodule update --init --recursive --remote
+  submodules: false
 
 dist: xenial
 
 sudo: true
 
 install:
+ - sudo git submodule update --init --recursive --remote
  - sudo apt-get install --allow-unauthenticated libboost-thread-dev libboost-iostreams-dev libboost-date-time-dev libboost-system-dev libboost-filesystem-dev libboost-program-options-dev libboost-chrono-dev libboost-test-dev libboost-context-dev libboost-regex-dev libboost-coroutine-dev cmake parallel
 
 addons:
